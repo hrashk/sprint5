@@ -39,8 +39,6 @@ public class StringListTest {
     }
 
     @Test public void listContains() {
-        List<String> list = oneTwoThreeList();
-
         assertTrue(list.contains("three"));
         assertFalse(list.contains("fifty"));
     }
