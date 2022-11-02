@@ -21,4 +21,9 @@ public class Person {
         if (age != person.age) return false;
         return Objects.equals(name, person.name);
     }
+
+    @Override
+    public String toString() {
+        return String.format("Person(%s, %d)", name, age);
+    }
 }

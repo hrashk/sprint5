@@ -26,12 +26,25 @@ public class PersonListTest {
         assertTrue(list.contains(new Person("Mary", 23)));
     }
 
-    @Test public void quizRemoveTwoPeople() {
+    @Test public void quizRemoveTwoPeopleWithListEquals() {
         list.remove(mary);
         list.remove(new Person("Irina", 37));
 
         assertEquals(2, list.size());
-        assertEquals(List.of(ivan, dima), list);
+        assertListEquals(List.of(ivan, mary, dima), list);
+    }
+
+    private void assertListEquals(List<Person> list1, List<Person> list2) {
+        assertEquals(newLineJoin(list1), newLineJoin(list2));
+    }
+
+    private String newLineJoin(List<Person> list) {
+        var sb = new StringBuilder();
+        for (Person person : list) {
+            sb.append(person);
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 
     private List<Person> personList() {
