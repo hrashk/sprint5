@@ -5,8 +5,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class StringListTest {
 
@@ -39,6 +38,13 @@ public class StringListTest {
 
         assertEquals(0, list.size());
         assertTrue(list.isEmpty());
+    }
+
+    @Test public void listContains() {
+        List<String> list = oneTwoThreeList();
+
+        assertTrue(list.contains("three"));
+        assertFalse(list.contains("fifty"));
     }
 
     @Test public void removeItemByValue() {
