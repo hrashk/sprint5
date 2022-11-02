@@ -33,6 +33,14 @@ public class StringListTest {
         assertEquals(List.of("one", "three", "four"), list);
     }
 
+    @Test public void clearList() {
+        List<String> list = oneTwoThreeList();
+        list.clear();
+
+        assertEquals(0, list.size());
+        assertTrue(list.isEmpty());
+    }
+
     @Test public void removeItemByValue() {
         List<String> list = oneTwoThreeList();
         list.remove("two");
@@ -41,12 +49,14 @@ public class StringListTest {
         assertEquals(List.of("one", "three", "four"), list);
     }
 
-    @Test public void clearList() {
+    @Test public void quizRemoveDuplicateItemByValue() {
         List<String> list = oneTwoThreeList();
-        list.clear();
+        list.add("two");
 
-        assertEquals(0, list.size());
-        assertTrue(list.isEmpty());
+        list.removeIf("two"::equals);
+
+        assertEquals(3, list.size());
+        assertEquals(List.of("one", "three", "four"), list);
     }
 
     private static List<String> oneTwoThreeList() {

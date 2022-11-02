@@ -55,8 +55,7 @@ public class ReverseListTest {
         assertEquals(List.of(33, 7, 10), list);
     }
 
-    @Test
-    public void arraysAsList() {
+    @Test public void quizArraysAsList() {
         List<Integer> list = Arrays.asList(10, 7, 33);
 
         reverser.reverseInPlace(list);
@@ -65,7 +64,7 @@ public class ReverseListTest {
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void listOf() {
+    public void quizListOf() {
         List<Integer> list = List.of(10, 7, 33);
 
         reverser.reverseInPlace(list);
