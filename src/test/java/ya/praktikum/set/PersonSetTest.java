@@ -28,6 +28,8 @@ public class PersonSetTest {
 
     @Test public void compareSets() {}
 
+    @Test public void orderedSet() {}
+
     @Test public void sortedSet() {
         var ts = new TreeSet<Person>();
         ts.add(new Person("vasya", 32));

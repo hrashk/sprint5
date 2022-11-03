@@ -6,8 +6,6 @@ package ya.praktikum;
  * why do we need collections ? we have arrays already, don't we? what if we create a big array in advance?
 
  * why do we need a map?
- * LinkedHashSet, LinkedHashMap, ConcurrentHashMap
- * TreeMap, TreeSet -> need Comparable keys
 
  * aim to use Value objects as keys in maps & sets
 

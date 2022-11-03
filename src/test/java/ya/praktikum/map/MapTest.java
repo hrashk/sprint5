@@ -94,6 +94,10 @@ public class MapTest {
         assertMapEquals(Map.of("mary", mary, "irina", irina, "dima", dima), people);
     }
 
+    @Test public void orderedMap() {}
+
+    @Test public void sortedMap() {}
+
     @Test public void mapWithCompositeKey() {
         Map<Person, String> map = new HashMap<>();
         map.put(mary, "mary");
@@ -105,6 +109,8 @@ public class MapTest {
         map.put(mary, "mary");
         assertEquals("mary", map.get(new Person("Mary", 23)));
     }
+
+    @Test public void concurrentMapAsRefDataCache() {}
 
     private Map<String, Person> sample() {
         Map<String, Person> map = new HashMap<>();
