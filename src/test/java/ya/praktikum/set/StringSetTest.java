@@ -1,4 +1,4 @@
-package ya.praktikum;
+package ya.praktikum.set;
 
 import org.junit.Test;
 

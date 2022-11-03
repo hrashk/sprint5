@@ -1,6 +1,7 @@
-package ya.praktikum;
+package ya.praktikum.list;
 
 import org.junit.Test;
+import ya.praktikum.ReverseList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class ReverseListTest {
+public class ReversePuzzleTest {
 
     private final ReverseList reverser = new ReverseList();
 

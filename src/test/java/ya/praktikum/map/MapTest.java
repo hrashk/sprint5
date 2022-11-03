@@ -1,6 +1,7 @@
-package ya.praktikum;
+package ya.praktikum.map;
 
 import org.junit.Test;
+import ya.praktikum.Person;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,8 @@
-package ya.praktikum;
+package ya.praktikum.map;
 
 import org.junit.Test;
 
-public class CharacterCounterTest {
+public class CounterPuzzleTest {
     @Test public void nullString() {}
 
     @Test public void emptyString() {}

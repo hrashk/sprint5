@@ -1,8 +1,8 @@
-package ya.praktikum;
+package ya.praktikum.set;
 
 import org.junit.Test;
 
-public class TwoSumTest {
+public class TwoSumPuzzleTest {
 
     @Test public void nullList() {}
     
