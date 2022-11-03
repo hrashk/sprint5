@@ -23,6 +23,11 @@ public class Person {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+
+    @Override
     public String toString() {
         return String.format("Person(%s, %d)", name, age);
     }
