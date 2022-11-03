@@ -11,10 +11,15 @@ public class StringListTest {
 
     private final List<String> list = oneTwoThreeList();
 
-    @Test public void createListLikeArrayAndPrint() {
+    @Test public void createListAndPrint() {
         System.out.println(list);
         assertEquals(4, list.size());
-        assertEquals("two", list.get(1));
+    }
+
+    @Test public void getByIndex() {
+        String value = list.get(1);
+        System.out.println(value);
+        assertEquals("two", value);
     }
 
     @Test public void replaceSecondItem() {
