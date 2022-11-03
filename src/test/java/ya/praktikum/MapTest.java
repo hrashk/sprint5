@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class MapTest {
     private final Person mary = new Person("Mary", 23);
@@ -13,18 +13,84 @@ public class MapTest {
     private final Person irina = new Person("Irina", 37);
     private final Person dima = new Person("Dima", 49);
 
-    @Test public void createAndPrint() {
-        var people = sample();
+    @Test public void emptyMap() {
+        var map = new HashMap<String, Person>();
+        assertEquals(0, map.size());
+        assertTrue(map.isEmpty());
+    }
 
-        System.out.println(people);
-        assertEquals(4, people.size());
+    @Test public void nonEmptyMap() {
+        var map = sample();
+        assertEquals(4, map.size());
+        assertFalse(map.isEmpty());
+    }
+
+    @Test public void printMap() {
+        System.out.println(sample());
+    }
+
+    @Test public void mapLiteral() {
+        var map = Map.of("Mary", mary, "Ivan", ivan);
+        System.out.println(map);
+        assertEquals(2, map.size());
     }
 
     @Test public void getByKey() {
+        assertEquals(mary, sample().get("mary"));
+    }
+
+    @Test public void allEntries() {
+        var entries = sample().entrySet();
+        assertEquals(4, entries.size());
+        for (Map.Entry<String, Person> entry : entries) {
+            System.out.printf("%s => %s%n", entry.getKey(), entry.getValue());
+        }
+    }
+
+    @Test public void allKeys() {
+        var keys = sample().keySet();
+        assertEquals(4, keys.size());
+        for (String key : keys) {
+            System.out.println(key);
+        }
+    }
+
+    @Test public void allPersons() {
+        var values = sample().values();
+        for (Person value : values) {
+            System.out.println(value);
+        }
+        assertEquals(4, values.size());
+    }
+
+    @Test public void updateByKey() {
         var people = sample();
-        Person byKey = people.get("mary");
-        System.out.println(byKey);
-        assertEquals(mary, byKey);
+        people.put("mary", new Person("Maria", 77));
+        assertEquals(new Person("Maria", 77), people.get("mary"));
+    }
+
+    @Test public void replaceExistingKey() {
+        var people = sample();
+        people.replace("mary", new Person("Maria", 77));
+        assertEquals(new Person("Maria", 77), people.get("mary"));
+    }
+
+    @Test public void replaceMissingKey() {
+        var people = sample();
+        people.replace("peter", new Person("Peter", 77));
+        assertNull(people.get("peter"));
+    }
+
+    @Test public void mapWithCompositeKey() {
+        Map<Person, String> map = new HashMap<>();
+        map.put(mary, "mary");
+        System.out.println(map);
+    }
+
+    @Test public void getByCompositeKey() {
+        Map<Person, String> map = new HashMap<>();
+        map.put(mary, "mary");
+        assertEquals("mary", map.get(new Person("Mary", 23)));
     }
 
     private Map<String, Person> sample() {
@@ -35,5 +101,4 @@ public class MapTest {
         map.put("dima", dima);
         return map;
     }
-
 }
