@@ -12,6 +12,9 @@ public class CharacterCounter {
      * W: 1
      * r: 1
      * d: 1
+     * ======
+     * homework: ignore case
+     * homework: sort by count
      */
     public static void main(String[] args) {
         System.out.println(Arrays.toString(args));
