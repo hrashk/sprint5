@@ -15,9 +15,11 @@ public class CollectionsPerfTest {
 
     @Test public void insertArrayList() {
         var list = new ArrayList<Integer>(10_000);
-        for (int i = 0; i < 500_000; i++) {
+        int hugeSize = 500_000;
+        for (int i = 0; i < hugeSize; i++) {
             list.add(0, current.nextInt());
         }
+        assertEquals(hugeSize, list.size());
     }
 
     @Test public void insertLinkedList() {
