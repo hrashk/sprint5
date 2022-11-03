@@ -16,22 +16,42 @@ public class PersonListTest {
     private final Person dima = new Person("Dima", 49);
     private final List<Person> list = personList();
 
-    @Test public void createListAndPrint() {
+    @Test public void nonEmptyList() {
         System.out.println(list);
         assertEquals(4, list.size());
     }
 
-    @Test public void quizListContains() {
+    @Test public void printList() {
+        System.out.println(list);
+    }
+
+    @Test public void quizListContainsByRefAndValue() {
         assertTrue(list.contains(mary));
         assertTrue(list.contains(new Person("Mary", 23)));
     }
 
-    @Test public void quizRemoveTwoPeopleWithListEquals() {
+    @Test public void removeTwoPeopleByRefAndValue() {
         list.remove(mary);
         list.remove(new Person("Irina", 37));
 
         assertEquals(2, list.size());
-        assertListEquals(List.of(ivan, mary, dima), list);
+    }
+
+    @Test public void compareLists() {
+        list.remove(mary);
+
+        assertListEquals(List.of(ivan, irina, dima), list);
+    }
+
+    private List<Person> personList() {
+        List<Person> list = new ArrayList<>();
+
+        list.add(ivan);
+        list.add(mary);
+        list.add(irina);
+        list.add(dima);
+
+        return list;
     }
 
     private void assertListEquals(List<Person> list1, List<Person> list2) {
@@ -45,16 +65,5 @@ public class PersonListTest {
             sb.append("\n");
         }
         return sb.toString();
-    }
-
-    private List<Person> personList() {
-        List<Person> list = new ArrayList<>();
-
-        list.add(ivan);
-        list.add(mary);
-        list.add(irina);
-        list.add(dima);
-
-        return list;
     }
 }
