@@ -2,6 +2,9 @@ package ya.praktikum;
 
 import org.junit.Test;
 
+/**
+ * What if hashcode always returns 42?
+ */
 public class PersonSetTest {
 
     @Test public void nonEmptySet() {}
