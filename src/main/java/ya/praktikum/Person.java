@@ -1,8 +1,9 @@
 package ya.praktikum;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable {
     private final String name;
     private final int age;
 
@@ -30,5 +31,12 @@ public class Person {
     @Override
     public String toString() {
         return String.format("Person(%s, %d)", name, age);
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return Comparator.comparingInt((Person p) -> p.age)
+                .thenComparing(p -> p.age)
+                .compare(this, (Person) o);
     }
 }
