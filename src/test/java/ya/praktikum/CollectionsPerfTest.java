@@ -7,7 +7,9 @@ import java.util.LinkedList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class LinkedListTest {
+import static org.junit.Assert.assertEquals;
+
+public class CollectionsPerfTest {
 
     private final Random current = ThreadLocalRandom.current();
 
@@ -20,8 +22,20 @@ public class LinkedListTest {
 
     @Test public void insertLinkedList() {
         var list = new LinkedList<Integer>();
-        for (int i = 0; i < 500_000; i++) {
+        int hugeSize = 500_000;
+        for (int i = 0; i < hugeSize; i++) {
             list.add(0, current.nextInt());
         }
+        assertEquals(hugeSize, list.size());
+    }
+
+    @Test public void homeworkReverseHugeLinkedListVsArrayList() {
+        var list = new LinkedList<Integer>();
+        int hugeSize = 200_000;
+        for (int i = 0; i < hugeSize; i++) {
+            list.add(i);
+        }
+        new ReverseList().reverseInPlace(list);
+        assertEquals(hugeSize, list.size());
     }
 }
