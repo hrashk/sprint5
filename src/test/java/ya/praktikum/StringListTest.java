@@ -29,6 +29,31 @@ public class StringListTest {
         assertEquals(4, list.size());
     }
 
+    @Test public void printList() {
+        System.out.println(list);
+    }
+
+    @Test public void listLiteral() {
+        var list = List.of("one", "two");
+        assertEquals(2, list.size());
+    }
+
+    @Test public void listFromStringArray() {
+        var list = Arrays.asList("one", "two");
+        assertEquals(2, list.size());
+
+        String[] arr = {"one", "two"};
+        assertEquals(2, Arrays.asList(arr).size());
+    }
+
+    @Test public void listFromPrimitiveArray() {
+        var list = Arrays.asList(1, 2);
+        assertEquals(2, list.size());
+
+        Integer[] arr = {1, 2};
+        assertEquals(2, Arrays.asList(arr).size());
+    }
+
     @Test public void clearList() {
         list.clear();
 
@@ -51,10 +76,6 @@ public class StringListTest {
         for (String s : list) {
             System.out.println(s);
         }
-    }
-
-    @Test public void printList() {
-        System.out.println(list);
     }
 
     @Test public void replaceSecondItem() {
