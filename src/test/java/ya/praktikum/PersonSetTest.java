@@ -8,11 +8,17 @@ public class PersonSetTest {
 
     @Test public void printSet() {}
 
-    @Test public void contains() {}
+    @Test public void containsByRef() {}
 
-    @Test public void addDuplicate() {}
+    @Test public void containsByValueWithAndWithoutHashcode() {}
 
-    @Test public void remove() {}
+    @Test public void addDuplicateByRef() {}
+
+    @Test public void addDuplicateByValue() {}
+
+    @Test public void removeByRef() {}
+
+    @Test public void removeByValue() {}
 
     @Test public void compareSets() {}
 }
