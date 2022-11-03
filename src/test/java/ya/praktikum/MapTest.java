@@ -81,6 +81,18 @@ public class MapTest {
         assertNull(people.get("peter"));
     }
 
+    @Test public void removeByKey() {
+        Map<String, Person> people = sample();
+        people.remove("ivan");
+        assertEquals(3, people.size());
+    }
+
+    @Test public void compareMaps() {
+        Map<String, Person> people = sample();
+        people.remove("ivan");
+        assertMapEquals(Map.of("mary", mary, "irina", irina, "dima", dima), people);
+    }
+
     @Test public void mapWithCompositeKey() {
         Map<Person, String> map = new HashMap<>();
         map.put(mary, "mary");
@@ -100,5 +112,17 @@ public class MapTest {
         map.put("irina", irina);
         map.put("dima", dima);
         return map;
+    }
+
+    private void assertMapEquals(Map<String, Person> expected, Map<String, Person> actual) {
+        assertEquals(newLineJoin(expected), newLineJoin(actual));
+    }
+
+    private String newLineJoin(Map<String, Person> map) {
+        var sb = new StringBuilder();
+        for (String key : map.keySet().stream().sorted().toArray(String[]::new)) {
+            sb.append(String.format("%s => %s%n", key, map.get(key)));
+        }
+        return sb.toString();
     }
 }
