@@ -3,8 +3,7 @@ package ya.praktikum.map;
 import org.junit.Test;
 import ya.praktikum.Person;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -91,7 +90,7 @@ public class MapTest {
     @Test public void compareMaps() {
         Map<String, Person> people = sample();
         people.remove("ivan");
-        assertMapEquals(Map.of("mary", mary, "irina", irina, "dima", dima), people);
+        assertMapEquals(Map.of("irina", irina, "Mary", mary, "dima", dima), people);
     }
 
     @Test public void orderedMap() {}
@@ -126,10 +125,11 @@ public class MapTest {
     }
 
     private String newLineJoin(Map<String, Person> map) {
-        var sb = new StringBuilder();
-        for (String key : map.keySet().stream().sorted().toArray(String[]::new)) {
-            sb.append(String.format("%s => %s%n", key, map.get(key)));
+        List<String> rows = new ArrayList<>();
+        for (Map.Entry<String, Person> e : map.entrySet()) {
+            rows.add(String.format("%s => %s", e.getKey(), e.getValue()));
         }
-        return sb.toString();
+        rows.sort(Comparator.comparing(String::toLowerCase));
+        return String.join("\n", rows);
     }
 }
