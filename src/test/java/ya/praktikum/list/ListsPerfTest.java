@@ -1,6 +1,7 @@
-package ya.praktikum;
+package ya.praktikum.list;
 
 import org.junit.Test;
+import ya.praktikum.ReverseList;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -9,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static org.junit.Assert.assertEquals;
 
-public class CollectionsPerfTest {
+public class ListsPerfTest {
 
     private final Random current = ThreadLocalRandom.current();
 
