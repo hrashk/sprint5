@@ -24,6 +24,7 @@ public class Person implements Comparable<Person> {
 
     /**
      * Основное правило: если p1.equals(ps), то обязательно p1.hashcode() == p2.hashcode()
+     * Обратное утверждаение неверно в общем случае.
      * Интервью: если всегда return 0, то hash set/map вырождается в linked list
      */
     @Override
