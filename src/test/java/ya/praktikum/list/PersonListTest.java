@@ -71,19 +71,6 @@ public class PersonListTest {
 
         list.remove(ivan);
 
-        assertListEquals(List.of(mary, ivan, irina, dima), list);
-    }
-
-    private void assertListEquals(List<Person> list1, List<Person> list2) {
-        assertEquals(newLineJoin(list1), newLineJoin(list2));
-    }
-
-    private String newLineJoin(List<Person> list) {
-        var sb = new StringBuilder();
-        for (Person person : list) {
-            sb.append(person);  // Person.toString
-            sb.append("\n");
-        }
-        return sb.toString();
+        assertIterableEquals(List.of(mary, ivan, irina, dima), list);
     }
 }
