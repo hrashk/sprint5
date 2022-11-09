@@ -7,12 +7,9 @@ import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static ya.praktikum.Fixture.*;
 
 public class MapTest {
-    private final Person mary = new Person("Mary", 23);
-    private final Person ivan = new Person("Ivan", 17);
-    private final Person irina = new Person("Irina", 37);
-    private final Person dima = new Person("Dima", 49);
 
     @Test public void emptyMap() {
         var map = new HashMap<String, Person>();

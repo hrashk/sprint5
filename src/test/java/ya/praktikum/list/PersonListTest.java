@@ -8,13 +8,9 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static ya.praktikum.Fixture.*;
 
 public class PersonListTest {
-
-    private final Person mary = new Person("Mary", 23);
-    private final Person ivan = new Person("Ivan", 17);
-    private final Person irina = new Person("Irina", 37);
-    private final Person dima = new Person("Dima", 49);
 
     private List<Person> sample() {
         List<Person> list = new ArrayList<>();
