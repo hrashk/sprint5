@@ -49,6 +49,17 @@ public class StringSetTest {
         System.out.println(Set.of("one", "two", "three", "four", "five", "six", "seven"));
     }
 
+    @Test public void addDuplicates() {
+        var set = sample();
+        assertEquals(7, set.size());
+
+        set.add("two");
+        set.add("three");
+
+        assertEquals(7, set.size());
+        assertEquals(sample(), set);
+    }
+
     @Test public void containsItem() {
         assert sample().contains("three");
     }
