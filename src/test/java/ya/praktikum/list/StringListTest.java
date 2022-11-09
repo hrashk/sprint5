@@ -142,7 +142,7 @@ public class StringListTest {
         assertEquals(List.of("four", "one", "three", "two"), list);
     }
 
-    @Test public void collectionSort() {
+    @Test public void collectionsSort() {
         var list = sample();
 
         Collections.sort(list); // String implements Comparable

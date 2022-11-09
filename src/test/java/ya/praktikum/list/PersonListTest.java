@@ -4,6 +4,7 @@ import org.junit.Test;
 import ya.praktikum.Person;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -51,6 +52,15 @@ public class PersonListTest {
 
         assertEquals(2, list.size());
         assertEquals(List.of(ivan, dima), list);
+    }
+
+    @Test public void collectionsSort() {
+        var list = sample();
+
+        Collections.sort(list);
+        System.out.println(list);
+
+        assertEquals(List.of(ivan, mary, irina, dima), list);
     }
 
     @Test public void compareHorizontal() {
