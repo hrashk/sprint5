@@ -3,7 +3,7 @@ package ya.praktikum;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Person implements Comparable {
+public class Person implements Comparable<Person> {
     private final String name;
     private final int age;
 
@@ -14,15 +14,18 @@ public class Person implements Comparable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Person))
+            return false;
 
-        Person person = (Person) o;
+        Person other = (Person) o;
 
-        if (age != person.age) return false;
-        return Objects.equals(name, person.name);
+        return age == other.age && Objects.equals(name, other.name);
     }
 
+    /**
+     * Основное правило: если p1.equals(ps), то обязательно p1.hashcode() == p2.hashcode()
+     * Интервью: если всегда return 0, то hash set/map вырождается в linked list
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name, age);
@@ -34,9 +37,9 @@ public class Person implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(Person o) {
         return Comparator.comparingInt((Person p) -> p.age)
                 .thenComparing(p -> p.age)
-                .compare(this, (Person) o);
+                .compare(this, o);
     }
 }
