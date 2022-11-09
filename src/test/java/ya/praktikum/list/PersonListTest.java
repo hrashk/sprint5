@@ -15,36 +15,8 @@ public class PersonListTest {
     private final Person ivan = new Person("Ivan", 17);
     private final Person irina = new Person("Irina", 37);
     private final Person dima = new Person("Dima", 49);
-    private final List<Person> list = personList();
 
-    @Test public void nonEmptyList() {
-        System.out.println(list);
-        assertEquals(4, list.size());
-    }
-
-    @Test public void printList() {
-        System.out.println(list);
-    }
-
-    @Test public void quizListContainsByRefAndValue() {
-        assertTrue(list.contains(mary));
-        assertTrue(list.contains(new Person("Mary", 23)));
-    }
-
-    @Test public void removeTwoPeopleByRefAndValue() {
-        list.remove(mary);
-        list.remove(new Person("Irina", 37));
-
-        assertEquals(2, list.size());
-    }
-
-    @Test public void compareLists() {
-        list.remove(mary);
-
-        assertListEquals(List.of(ivan, irina, dima), list);
-    }
-
-    private List<Person> personList() {
+    private List<Person> sample() {
         List<Person> list = new ArrayList<>();
 
         list.add(ivan);
@@ -55,6 +27,48 @@ public class PersonListTest {
         return list;
     }
 
+    @Test public void nonEmptyList() {
+        var list = sample();
+
+        System.out.println(list); // Person.toString
+
+        assertEquals(4, list.size());
+    }
+
+    @Test public void quizListContainsByRefAndValue() {
+        var list = sample();
+
+        assertTrue(list.contains(mary));
+
+        assertTrue(list.contains(new Person("Mary", 23))); // Person.equals
+    }
+
+    @Test public void removeTwoPeopleByRefAndValue() {
+        var list = sample();
+
+        list.remove(mary);
+        list.remove(new Person("Irina", 37)); // Person.equals
+
+        assertEquals(2, list.size());
+        assertEquals(List.of(ivan, dima), list);
+    }
+
+    @Test public void compareHorizontal() {
+        var list = sample();
+
+        list.remove(ivan);
+
+        assertEquals(List.of(mary, ivan, irina, dima), list); // сложно анализировать при большом списке
+    }
+
+    @Test public void compareVertical() {
+        var list = sample();
+
+        list.remove(ivan);
+
+        assertListEquals(List.of(mary, ivan, irina, dima), list);
+    }
+
     private void assertListEquals(List<Person> list1, List<Person> list2) {
         assertEquals(newLineJoin(list1), newLineJoin(list2));
     }
@@ -62,7 +76,7 @@ public class PersonListTest {
     private String newLineJoin(List<Person> list) {
         var sb = new StringBuilder();
         for (Person person : list) {
-            sb.append(person);
+            sb.append(person);  // Person.toString
             sb.append("\n");
         }
         return sb.toString();
