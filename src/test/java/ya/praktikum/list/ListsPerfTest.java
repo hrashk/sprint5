@@ -1,10 +1,10 @@
 package ya.praktikum.list;
 
 import org.junit.Test;
-import ya.praktikum.ReverseList;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -12,33 +12,56 @@ import static org.junit.Assert.assertEquals;
 
 public class ListsPerfTest {
 
-    private final Random current = ThreadLocalRandom.current();
+    public static final int HUGE_SIZE = 200_000;
+    private final Random random = ThreadLocalRandom.current();
 
-    @Test public void insertArrayList() {
-        var list = new ArrayList<Integer>(10_000);
-        int hugeSize = 500_000;
-        for (int i = 0; i < hugeSize; i++) {
-            list.add(0, current.nextInt());
-        }
-        assertEquals(hugeSize, list.size());
+    private void insertFirst(List<Integer> list) {
+        list.add(0, random.nextInt());
     }
 
-    @Test public void insertLinkedList() {
-        var list = new LinkedList<Integer>();
-        int hugeSize = 500_000;
-        for (int i = 0; i < hugeSize; i++) {
-            list.add(0, current.nextInt());
+    @Test public void slowInsertFirst() {
+        var list = new ArrayList<Integer>();
+        for (int i = 0; i < HUGE_SIZE; i++) {
+            insertFirst(list);
         }
-        assertEquals(hugeSize, list.size());
+        assertEquals(HUGE_SIZE, list.size());
     }
 
-    @Test public void homeworkReverseHugeLinkedListVsArrayList() {
+    @Test public void fastInsertFirst() {
         var list = new LinkedList<Integer>();
-        int hugeSize = 200_000;
-        for (int i = 0; i < hugeSize; i++) {
-            list.add(i);
+        for (int i = 0; i < HUGE_SIZE; i++) {
+            insertFirst(list);
         }
-        new ReverseList().reverseInPlace(list);
-        assertEquals(hugeSize, list.size());
+        assertEquals(HUGE_SIZE, list.size());
+    }
+
+    private List<Integer> hugeLinkedList() {
+        var list = new LinkedList<Integer>();
+        for (int i = 0; i < HUGE_SIZE; i++) {
+            insertFirst(list);
+        }
+        return list;
+    }
+
+    @Test public void slowIterationByIndex() {
+        var list = hugeLinkedList();
+        int sum = 0;
+
+        for (int i = 0; i < list.size(); i++) {
+            sum += list.get(i);
+        }
+
+        assert sum != 0;
+    }
+
+    @Test public void fastIterationByValue() {
+        var list = hugeLinkedList();
+        int sum = 0;
+
+        for (Integer value : list) {
+            sum += value;
+        }
+
+        assert sum != 0;
     }
 }
