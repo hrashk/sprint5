@@ -7,23 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class TwoSumPuzzleTest {
 
     @Test public void nullList() {
         var s = new TwoSum();
-        assertTrue(s.findPair(null, 10).isEmpty());
+        assert s.findPair(null, 10).isEmpty();
     }
     
     @Test public void emptyList() {
         var s = new TwoSum();
-        assertTrue(s.findPair(List.of(), 10).isEmpty());
+        assert s.findPair(List.of(), 10).isEmpty();
     }
     
     @Test public void singleElementList() {
         var s = new TwoSum();
-        assertTrue(s.findPair(List.of(3), 10).isEmpty());
+        assert s.findPair(List.of(3), 10).isEmpty();
     }
 
     /**

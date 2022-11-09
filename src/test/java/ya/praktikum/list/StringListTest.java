@@ -7,18 +7,18 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class StringListTest {
 
     @Test public void emptyList() {
-        assertTrue(new ArrayList<Integer>().isEmpty());
+        assert new ArrayList<Integer>().isEmpty();
 
-        assertTrue(List.of().isEmpty());
+        assert List.of().isEmpty();
 
-        assertTrue(Arrays.asList().isEmpty());
+        assert Arrays.asList().isEmpty();
 
-        assertTrue(Collections.emptyList().isEmpty());
+        assert Collections.emptyList().isEmpty();
     }
 
     private static List<String> sample() {
@@ -65,7 +65,7 @@ public class StringListTest {
 
         list.clear();
 
-        assertTrue(list.isEmpty());
+        assert list.isEmpty();
     }
 
     @Test public void getByIndex() {
@@ -112,9 +112,9 @@ public class StringListTest {
     }
 
     @Test public void listContains() {
-        assertTrue(sample().contains("three"));
+        assert sample().contains("three");
 
-        assertFalse(sample().contains("fifty"));
+        assert !sample().contains("fifty");
     }
 
     @Test public void removeByValue() {

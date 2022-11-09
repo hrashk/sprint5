@@ -6,17 +6,16 @@ import ya.praktikum.CharacterCounter;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class CounterPuzzleTest {
     @Test public void nullString() {
         CharacterCounter counter = new CharacterCounter();
-        assertTrue(counter.count(null).isEmpty());
+        assert counter.count(null).isEmpty();
     }
 
     @Test public void emptyString() {
         CharacterCounter counter = new CharacterCounter();
-        assertTrue(counter.count("").isEmpty());
+        assert counter.count("").isEmpty();
     }
 
     @Test public void singleCharString() {

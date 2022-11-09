@@ -5,7 +5,8 @@ import ya.praktikum.Person;
 
 import java.util.*;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class MapTest {
     private final Person mary = new Person("Mary", 23);
@@ -16,13 +17,12 @@ public class MapTest {
     @Test public void emptyMap() {
         var map = new HashMap<String, Person>();
         assertEquals(0, map.size());
-        assertTrue(map.isEmpty());
+        assert map.isEmpty();
     }
 
     @Test public void nonEmptyMap() {
         var map = sample();
         assertEquals(4, map.size());
-        assertFalse(map.isEmpty());
     }
 
     @Test public void printMap() {

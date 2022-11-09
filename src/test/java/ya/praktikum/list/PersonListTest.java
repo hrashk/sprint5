@@ -8,7 +8,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class PersonListTest {
 
@@ -39,9 +38,9 @@ public class PersonListTest {
     @Test public void quizListContainsByRefAndValue() {
         var list = sample();
 
-        assertTrue(list.contains(mary));
+        assert list.contains(mary);
 
-        assertTrue(list.contains(new Person("Mary", 23))); // Person.equals
+        assert list.contains(new Person("Mary", 23)); // Person.equals
     }
 
     @Test public void removeTwoPeopleByRefAndValue() {
