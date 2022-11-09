@@ -54,7 +54,8 @@ public class StringListTest {
         int[] arr = {1, 2};
         var list = Arrays.asList(arr);
 
-        System.out.println(list);
+        System.out.println(list); // ужос
+        System.out.println(Arrays.toString(arr)); // зато тут красивше
 
         assertEquals(1, list.size()); // fatality
     }
