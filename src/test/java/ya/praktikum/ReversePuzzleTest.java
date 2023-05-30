@@ -1,7 +1,6 @@
-package ya.praktikum.list;
+package ya.praktikum;
 
 import org.junit.Test;
-import ya.praktikum.ReverseList;
 
 import java.util.ArrayList;
 import java.util.Arrays;

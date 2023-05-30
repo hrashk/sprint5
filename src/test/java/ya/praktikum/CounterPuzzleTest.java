@@ -1,7 +1,6 @@
-package ya.praktikum.map;
+package ya.praktikum;
 
 import org.junit.Test;
-import ya.praktikum.CharacterCounter;
 
 import java.util.List;
 

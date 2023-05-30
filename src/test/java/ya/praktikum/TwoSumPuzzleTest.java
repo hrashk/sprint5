@@ -1,7 +1,6 @@
-package ya.praktikum.set;
+package ya.praktikum;
 
 import org.junit.Test;
-import ya.praktikum.TwoSum;
 
 import java.util.ArrayList;
 import java.util.List;
