@@ -1,9 +1,6 @@
 package ya.praktikum;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * java -cp target/classes ya.praktikum.CharacterCounter Hello World
@@ -30,29 +27,7 @@ public class CharacterCounter {
     }
 
     public List<String> count(String line) {
-        if (line == null)
-            return List.of();
-
-        Map<Character, Integer> freqs = computeFrequencies(line);
-        return convertToList(freqs);
+        return null;
     }
-
-    private static Map<Character, Integer> computeFrequencies(String line) {
-        var freqs = new LinkedHashMap<Character, Integer>();
-
-        for (char c : line.toCharArray()) {
-            freqs.compute(c, (cur, f) -> f == null ? 1 : f + 1);
-        }
-        return freqs;
-    }
-
-    private static List<String> convertToList(Map<Character, Integer> freqs) {
-        var res = new ArrayList<String>();
-        for (Map.Entry<Character, Integer> entry : freqs.entrySet()) {
-            res.add(String.format("%s: %d", entry.getKey(), entry.getValue()));
-        }
-        return res;
-    }
-
 
 }

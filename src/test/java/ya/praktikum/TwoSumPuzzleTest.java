@@ -2,26 +2,16 @@ package ya.praktikum;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-
 public class TwoSumPuzzleTest {
+    TwoSum s = new TwoSum();
 
     @Test public void nullList() {
-        var s = new TwoSum();
-        assert s.findPair(null, 10).isEmpty();
     }
     
     @Test public void emptyList() {
-        var s = new TwoSum();
-        assert s.findPair(List.of(), 10).isEmpty();
     }
     
     @Test public void singleElementList() {
-        var s = new TwoSum();
-        assert s.findPair(List.of(3), 10).isEmpty();
     }
 
     /**
@@ -31,33 +21,8 @@ public class TwoSumPuzzleTest {
      * [1, 3, 6, 7, 9] @ 10
      */
     @Test public void twoElements() {
-        var s = new TwoSum();
-        assertEquals(List.of(3, 3), s.findPair(List.of(3, 3), 6));
-    }
-
-    @Test public void twoElementsGlitch() {
-        var s = new TwoSum();
-        assertEquals(List.of(2, 4), s.findPair(List.of(2, 3, 4), 6));
     }
 
     @Test public void threeElements() {
-        var s = new TwoSum();
-        assertEquals(List.of(2, 4), s.findPair(List.of(3, 2, 4), 6));
     }
-
-
-    @Test public void hugeSample() {
-        var s = new TwoSum();
-        int size = 200_000;
-        ArrayList<Integer> huge = new ArrayList<>(size);
-        for (int i = 0; i < size; i++) {
-            huge.add(-1);
-        }
-        huge.set(0, 2);
-        huge.set(size - 1, 4);
-        assertEquals(List.of(2, 4), s.findPair(huge, 6));
-    }
-
-
-
 }
