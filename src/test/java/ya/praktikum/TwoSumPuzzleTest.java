@@ -2,6 +2,10 @@ package ya.praktikum;
 
 import org.junit.Test;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+
 public class TwoSumPuzzleTest {
     TwoSum s = new TwoSum();
 
@@ -21,6 +25,8 @@ public class TwoSumPuzzleTest {
      * [1, 3, 6, 7, 9] @ 10
      */
     @Test public void twoElements() {
+        List<Integer> pair = s.findPair(List.of(1, 3, 6, 7, 9), 10);
+        assertEquals(List.of(3, 7), pair);
     }
 
     @Test public void threeElements() {
